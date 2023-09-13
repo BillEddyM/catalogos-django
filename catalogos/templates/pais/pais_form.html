@@ -1,11 +1,27 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>{% if pais.pk %}Editar País{% else %}Agregar País{% endif %}</h1>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Guardar</button>
-  </form>
-  <a href="{% url 'pais_list' %}">Volver al Listado de Países</a>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header bg-dark text-white">
+            <h3 class="mb-0">{% if pais.pk %}Editar País{% else %}Agregar País{% endif %}</h3>
+          </div>
+          <div class="card-body">
+            <form method="post">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button type="submit" class="btn btn-dark btn-block">Guardar</button>
+            </form>
+          </div>
+        </div>
+        <div class="mt-3">
+          <a href="{% url 'pais_list' %}" class="btn btn-secondary">Volver al Listado de Países</a>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}
+
+

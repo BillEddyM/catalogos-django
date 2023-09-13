@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'catalogos',
 ]
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -126,6 +127,7 @@ STATICFILES_DIRS = ['static/', BASE_DIR]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+#---------- se agrego para el login, se agrego la pp customauth
 AUTH_USER_MODEL = 'customauthentication.CustomUserAuthentication'
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'auth/login'
