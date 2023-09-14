@@ -1,7 +1,9 @@
+
+
 {% extends "base.html" %}
 
-
 {% block content %}
+<h1 class="text-center">Paises</h1>
 
 <div class="highlight p-3 mb-3 bg-light rounded">
   <form method="get" class="form-inline my-2 my-lg-0">
@@ -10,7 +12,7 @@
   </form>
 </div>
 
-  <div class="container mt-2">
+<div class="container mt-2">
     <h1 class="text-center text-white">Listado de Países</h1>
     {% if perms.catalogos.add_pais %}
       <a href="{% url 'pais_create' %}" class="btn btn-dark"><i class="fas fa-plus"></i> Agregar País</a>

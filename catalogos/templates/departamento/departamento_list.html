@@ -1,0 +1,50 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="text-center">Departamentos</h1>
+
+<div class="highlight p-3 mb-3 bg-light rounded">
+  <form method="get" class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" name="q" placeholder="Buscar departamento..." aria-label="Buscar">
+    <button class="btn btn-outline-dark my-2 my-sm-0" type="submit"><i class="fas fa-search"></i> Buscar</button>
+  </form>
+</div>
+
+<div class="container mt-2">
+    <h1 class="text-center text-white">Listado de Departamentos</h1>
+    {% if perms.catalogos.add_departamento %}
+      <a href="{% url 'departamento_create' %}" class="btn btn-dark"><i class="fas fa-plus"></i> Agregar Departamento</a>
+    {% endif %}
+    <table class="table table-striped" style="table-layout: fixed; width: 100%;">
+      <thead >
+        <tr>
+          <th style="width: 33%;">Nombre</th>
+          <th style="width: 33%;">Código</th>
+          {% if perms.catalogos.change_departamento or perms.catalogos.delete_departamento %}
+            <th style="width: 34%;">Acciones</th>
+          {% endif %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for departamento in departamentos %}
+          <tr>
+            <td>{{ departamento.nombre }}</td>
+            <td>{{ departamento.codigo }}</td>
+            {% if perms.catalogos.change_departamento or perms.catalogos.delete_departamento %}
+              <td>
+                {% if perms.catalogos.change_departamento %}
+                  <a href="{% url 'departamento_update' departamento.pk %}" class="btn btn-primary"><i class="fas fa-edit"></i> Editar</a>
+                {% endif %}
+                {% if perms.catalogos.delete_departamento %}
+                  <a href="{% url 'departamento_delete' departamento.pk %}" class="btn btn-danger"><i class="fas fa-trash"></i> Eliminar</a>
+                {% endif %}
+              </td>
+            {% endif %}
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  
+  </div>
+{% endblock %}

@@ -2,5 +2,27 @@
 {% block title %}Home{% endblock %}
 {% block content %}
 
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Paises</h5>
+        <a href="{% url 'pais_list' %}" class="btn btn-primary">Ver paises</a>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Departamentos</h5>
+        <a href="{% url 'departamento_list' %}" class="btn btn-primary">Ver departamentos</a>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Municipios</h5>
+        <a href="{% url 'municipio_list' %}" class="btn btn-primary">Ver municipios</a>
+    </div>
+</div>
+
+<div style="height: 100px;"></div>
+
 {% endblock %}
-```
